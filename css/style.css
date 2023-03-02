@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e7e8e9;
+}
+
+img {
+  max-width: 100%;
+}
+
+.map {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map__wrapper {
+  max-width: 1050px;
+  position: relative;
+}
+
+.map__wrapper svg {
+  position: absolute;
+  z-index: 0;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  max-width: 1050px;
+  height: 100%;
+}
+
+.region {
+  fill: none;
+  stroke: #333;
+  stroke-width: 5px;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.region:hover {
+  animation: highlight 2s linear infinite;
+  z-index: 3;
+}
+
+@keyframes highlight {
+  0% {
+    stroke: #333;
+  }
+  50% {
+    stroke: #ff0000;
+  }
+  100% {
+    stroke: #333;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.info__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.3s all;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.info__bg--active {
+  pointer-events: all;
+  opacity: 1;
+  transition: 0.3s all;
+}
+
+.info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  width: 500px;
+}
